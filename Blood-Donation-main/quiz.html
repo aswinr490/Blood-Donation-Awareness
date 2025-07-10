@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Donation Quiz Puzzle</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #quiz-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #options button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #options button:hover {
+      background-color: #c0392b;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Blood Donation Awareness - Puzzle Game</h1>
+    <nav>
+      <a href="index.html">← Back to Main Site</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="puzzle">
+      <h2>Blood Donation Quiz Puzzle</h2>
+      <p>Test your knowledge about blood donation!</p>
+      <div id="quiz-container">
+        <p id="question"></p>
+        <div id="options"></div>
+        <button onclick="nextQuestion()">Next</button>
+      </div>
+      <p id="score"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Blood Donation Awareness. All rights reserved.</p>
+  </footer>
+
+  <!-- Internal JS -->
+  <script>
+    const quizData = [
+      {
+        question: "How often can a healthy adult donate blood?",
+        options: ["Every 15 days", "Every 56 days", "Once a year", "Every week"],
+        answer: "Every 56 days"
+      },
+      {
+        question: "Which blood type is the universal donor?",
+        options: ["O+", "A-", "O-", "AB+"],
+        answer: "O-"
+      },
+      {
+        question: "How long does a blood donation typically take?",
+        options: ["1 hour", "10-15 minutes", "30 minutes", "45 minutes"],
+        answer: "10-15 minutes"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const quiz = quizData[currentQuestion];
+      document.getElementById('question').innerText = quiz.question;
+      const optionsDiv = document.getElementById('options');
+      optionsDiv.innerHTML = '';
+      quiz.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.innerText = option;
+        btn.onclick = () => {
+          if (option === quiz.answer) {
+            score++;
+            alert("Correct!");
+          } else {
+            alert("Wrong! Correct answer: " + quiz.answer);
+          }
+          nextQuestion();
+        };
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        document.getElementById('quiz-container').innerHTML = 
+          `<h3>Quiz Complete! Your Score: ${score}/${quizData.length}</h3>`;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadQuestion);
+  </script>
+</body>
+</html>

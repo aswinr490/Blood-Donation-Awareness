@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Awareness and Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img width="100" src="https://static.vecteezy.com/system/resources/thumbnails/021/432/955/small_2x/blood-donation-icon-png.png" alt="Logo" class="header-logo">
+        <h1>Blood Donation Awareness</h1>
+        <nav>
+            <ul>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="donor_list.html" class="btn">Registered Donors</a></li>
+                <li><a href="#news">Latest News</a></li>
+                <li><a href="fun_facts.html">Fun Facts</a></li>
+                <li><a href="blood_checker.html">Blood compatibility checker</a></li>
+                
+            </ul>
+        </nav>        
+    </header>
+
+    <!-- Information Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Why Blood Donation is Important</h2>
+            <p>Blood donation is a vital part of healthcare systems worldwide. Each year, millions of people require blood for surgeries, cancer treatment, trauma care, and other medical conditions. The blood donated by individuals saves lives and helps maintain a steady supply for patients in need.</p>
+            <p><strong>Benefits of donating blood:</strong></p>
+            <ul>
+                <li>It saves lives—every donation can save up to three lives.</li>
+                <li>It helps patients undergoing surgeries, cancer treatments, and trauma recovery.</li>
+                <li>Regular blood donation can improve your health by reducing the risk of certain diseases like hemochromatosis.</li>
+                <li>It promotes the production of new blood cells in the body.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="section" id="news">
+        <div class="container">
+            <h2>Latest News on Blood Donation</h2>
+            <div class="news-container">
+                <iframe src="https://www.medicalnewstoday.com/articles/319366" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donor Registration Form -->
+    <section class="section" id="register">
+        <div class="container">
+            <h2>Register as a Donor</h2>
+            <form id="registrationForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="tel" id="contact" placeholder="Contact Number" pattern="[0-9]{10}" title="Enter a valid 10-digit contact number" required>
+                <select id="bloodType" required>
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="O+">O+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="A-">A-</option>
+                    <option value="B-">B-</option>
+                    <option value="O-">O-</option>
+                    <option value="AB-">AB-</option>
+                </select>
+                <select id="location" required>
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+                <button type="submit">Register as Donor</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Blood Group Search Section -->
+    <section class="section" id="searchDonors">
+        <div class="container">
+            <h2>Search for Blood Donors</h2>
+            <form id="searchForm">
+                <select id="searchBloodType">
+                    <option value="">Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="O+">O+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="A-">A-</option>
+                    <option value="B-">B-</option>
+                    <option value="O-">O-</option>
+                    <option value="AB-">AB-</option>
+                </select>
+                <select id="searchLocation">
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+            <div id="donorListItems">
+                <!-- Sample Donor -->
+                <p>
+                    <span>Name:</span> John Doe <br>
+                    <span>Blood Type:</span> O+ <br>
+                    <span>Location:</span> New Delhi, India <br>
+                    <span>Contact:</span> johndoe@example.com
+                </p>
+                <!-- Additional Donor Items will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Blood Donation Awareness. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

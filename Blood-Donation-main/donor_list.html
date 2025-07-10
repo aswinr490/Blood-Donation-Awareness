@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registered Donors</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #80deea);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    .back-button {
+      background: #00acc1;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: #00838f;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 100px auto 40px;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e0f2f1;
+      color: #004d40;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      table, th, td {
+        font-size: 14px;
+      }
+    }
+    header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #e74c3c;
+}
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+  </style>
+</head>
+<body>
+
+     <header>
+       
+        <nav>
+            <ul>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="donors.html" class="btn">Registered Donors</a></li>
+                <li><a href="#news">Latest News</a></li>
+                <li><a href="fun_facts.html">Fun Facts</a></li>
+                <li><a href="blood_checker.html">Blood Compatibility Checker</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <div class="top-bar">
+    <a class="back-button" href="index.html">← Back to Main Site</a>
+  </div>
+
+  <div class="container">
+    <h1>Registered Donors</h1>
+
+    <table id="donorTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Blood Type</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JavaScript will populate donor rows here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Fetch donors from localStorage
+    const donors = JSON.parse(localStorage.getItem('donors')) || [];
+    const tableBody = document.querySelector('#donorTable tbody');
+
+    if (donors.length > 0) {
+      donors.forEach(donor => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${donor.name}</td>
+          <td>${donor.email}</td>
+          <td>${donor.contact}</td>
+          <td>${donor.bloodType}</td>
+          <td>${donor.location}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    } else {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td colspan="5" style="text-align:center;">No registered donors found.</td>`;
+      tableBody.appendChild(row);
+    }
+  </script>
+
+</body>
+</html>
