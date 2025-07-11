@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Blood Donation Awareness</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .signup-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #cc0000;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .checkbox-container {
+      margin-top: -8px;
+      margin-bottom: 10px;
+      font-size: 0.9em;
+      color: #555;
+      text-align: left;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #990000;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .signin-link {
+      margin-top: 15px;
+      font-size: 0.9em;
+    }
+
+    .signin-link a {
+      color: #cc0000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .signin-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Create Account</h2>
+    <input type="text" id="newUsername" placeholder="Choose a username" required />
+    <input type="password" id="newPassword" placeholder="Choose a password" required />
+
+    <!-- Password toggle checkbox -->
+    <div class="checkbox-container">
+      <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+    </div>
+
+    <button onclick="signup()">Sign Up</button>
+    <p class="message" id="signupMsg"></p>
+
+    <!-- Sign in link -->
+    <div class="signin-link">
+      Already have an account? <a href="login_page.html">Sign in here</a>
+    </div>
+  </div>
+
+  <script>
+    function signup() {
+      const username = document.getElementById("newUsername").value.trim();
+      const password = document.getElementById("newPassword").value;
+      const message = document.getElementById("signupMsg");
+
+      if (username === "" || password === "") {
+        message.textContent = "Please fill in all fields!";
+        message.className = "message error";
+        return;
+      }
+
+      // Save to localStorage
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+
+      message.textContent = "Account created! Redirecting to login...";
+      message.className = "message";
+
+      setTimeout(() => {
+        window.location.href = "login_page.html";
+      }, 2000);
+    }
+
+    function togglePassword() {
+      const passwordField = document.getElementById("newPassword");
+      passwordField.type = passwordField.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
